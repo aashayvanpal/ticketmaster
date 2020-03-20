@@ -3,6 +3,10 @@ import { BrowserRouter, Link, Route } from 'react-router-dom'
 import CustomersList from './customers/List.js'
 import CustomerNew from './customers/New.js'
 import DepartmentList from './departments/List.js'
+import EmployeeList from './employees/List.js'
+import EmployeeNew from './employees/New.js'
+
+
 
 
 export default class Home extends React.Component {
@@ -17,21 +21,20 @@ export default class Home extends React.Component {
                 <Link to="/">Home</Link>
                 <Link to="/Customers">Customers</Link>
                 <Link to="/Departments">Departments</Link>
-                <Route path="/">
+                <Link to="/Employees">Employees</Link>
+                <Route path="/" />
 
-                </Route>
+                <Route path="/Customers" component={CustomersList} exact={true} />
 
-                <Route path="/Customers" component={CustomersList} exact={true}>
+                <Route path="/Customers/new" component={CustomerNew} />
 
-                </Route>
+                <Route path="/Departments" component={DepartmentList} />
 
-                <Route path="/Customers/new" component={CustomerNew} >
+                <Route path="/Employees" component={EmployeeList} exact={true} />
 
-                </Route>
+                <Route path="/Employees/new" component={EmployeeNew} />
 
-                <Route path="/Departments" component={DepartmentList} >
 
-                </Route>
 
             </BrowserRouter >
         )

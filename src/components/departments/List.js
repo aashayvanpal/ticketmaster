@@ -1,5 +1,6 @@
 import React from 'react'
-import axios from 'axios'
+import axios from '../../config/axios.js'
+
 import DepartmentForm from './Form.js'
 
 export default class DepartmentList extends React.Component {
@@ -12,7 +13,7 @@ export default class DepartmentList extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('https://dct-ticket-master.herokuapp.com/departments', {
+        axios.get('/departments', {
             headers: {
                 'x-auth': localStorage.getItem('token')
             }
@@ -29,7 +30,7 @@ export default class DepartmentList extends React.Component {
     handleFormSubmit = (formData) => {
         console.log(formData)
 
-        axios.post('https://dct-ticket-master.herokuapp.com/departments', formData, {
+        axios.post('/departments', formData, {
             headers: {
                 'x-auth': localStorage.getItem('token')
             }
@@ -54,7 +55,7 @@ export default class DepartmentList extends React.Component {
     }
 
     handleRemove=(id)=>{
-        axios.delete(`https://dct-ticket-master.herokuapp.com/departments/${id}`,{
+        axios.delete(`/departments/${id}`,{
             headers:{
                 'x-auth':localStorage.getItem('token')
             }

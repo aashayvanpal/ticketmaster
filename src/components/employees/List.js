@@ -1,26 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import CustomerItem from './Item.js'
 import axios from '../../config/axios.js'
 
-export default class CustomersList extends React.Component {
+export default class EmployeesList extends React.Component {
     constructor() {
         super()
         this.state = {
-            customers: []
+            employees: []
         }
     }
 
     componentDidMount() {
-        axios.get('/customers', {
+        axios.get('/employees', {
             headers: {
                 'x-auth': localStorage.getItem('token')
             }
         })
             .then(response => {
                 console.log('Data : ', response.data)
-                const customers = response.data
-                this.setState({ customers })
+                const employees = response.data
+                this.setState({ employees })
             })
             .catch(err => {
                 console.log(err)
@@ -30,7 +29,7 @@ export default class CustomersList extends React.Component {
     render() {
         return (
             <div>
-                <h1>Listing Customers - {this.state.customers.length}</h1>
+                <h1>Listing Employees - {this.state.employees.length}</h1>
 
                 <table>
                     <thead>
@@ -39,23 +38,22 @@ export default class CustomersList extends React.Component {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Mobile</th>
+                            <th>Department</th>
                             <th>Action</th>
-                            <th>Remove</th>
-                            <th>Update</th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.customers.map((customer, i) => {
+                        {this.state.employees.map(function (employee,i) {
                             return (
-
-                                <CustomerItem key={customer._id}
-                                    index={i}
-                                    name={customer.name}
-                                    email={customer.email}
-                                    mobile={customer.mobile}
-                                />
-                                // <CustomerItem {...customer,index}/>
+                                <tr key={employee._id}>
+                                    <td> {i + 1} </td>
+                                    <td> {employee.name} </td>
+                                    <td> {employee.email} </td>
+                                    <td> {employee.mobile} </td>
+                                    <td> {employee.department.name} </td>
+                                    <td> show </td>
+                                </tr>
 
                             )
                         })}
@@ -63,7 +61,7 @@ export default class CustomersList extends React.Component {
                 </table>
 
 
-                <Link to='Customers/new'>Add Customer</Link>
+                <Link to='Employees/new'>Add Employee</Link>
             </div>
         )
     }
