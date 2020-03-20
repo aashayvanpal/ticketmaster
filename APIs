@@ -1,0 +1,80 @@
+Post :
+https://dct-ticket-master.herokuapp.com/users/register
+username
+email
+password
+
+
+Loging in user:
+https://dct-ticket-master.herokuapp.com/users/login
+email
+password
+
+
+Token
+{
+   "email":"aashay1.vanpal@gmail.com",
+	"password":"aashay1"
+}
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTczNTc5ZTQzMmVmZDAwMTZlODA2NTUiLCJ1c2VybmFtZSI6ImFhc2hheTEiLCJjcmVhdGVkQXQiOjE1ODQ2MTczODk2NzEsImlhdCI6MTU4NDYxNzM4OX0.GmNaC-KYAfdmFbFO7Sh8aD395vUOTdYLHdRQ1_uDNtw
+
+
+List all customers :
+GET
+x-auth
+https://dct-ticket-master.herokuapp.com/customers
+
+
+Create customer :
+POST
+https://dct-ticket-master.herokuapp.com/customers
+x-auth 
+
+name
+email
+mobile
+
+List customers: 
+GET
+https://dct-ticket-master.herokuapp.com/customers
+x-auth
+
+Delete Customers:
+https://dct-ticket-master.herokuapp.com/customers/:id
+x-auth
+
+
+List all Departments :
+GET
+https://dct-ticket-master.herokuapp.com/departments
+x-auth
+
+Create Department :
+POST
+https://dct-ticket-master.herokuapp.com/departments
+x-auth
+
+name
+
+
+
+List Employees: 
+GET
+https://dct-ticket-master.herokuapp.com/employees
+x-auth
+
+
+Create Employees :
+POST
+https://dct-ticket-master.herokuapp.com/employees
+x-auth
+
+name
+email
+mobile
+department
+
+Delete Customers:
+https://dct-ticket-master.herokuapp.com/customers/:id
+x-auth

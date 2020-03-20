@@ -1,0 +1,21 @@
+As a < user > i should be able to < goal and its outcome >
+
+1. As a user i should be able to see a link for departments , when clicked , i should be able to see a list of departments
+
+2. As a user i should be able to see a form on the departments listing page, the form must contain name field , when i submit the form, the record has to be inserted into the database
+
+3. As a user i should be able to see a button to remove a customer from the customer listing page. when the button is clicked, it must ask me for a prompt, when selected ok , i record must be deleted in the server(db) and the state needs to be updated
+
+4.As a user i should be able to see a link for employees,when clicked, i should be able to see a list of employees
+    - name,mobile,email,department name 
+
+5. As a user i should see a link to add an employee,when clicked, it should take me to employee new page
+
+6.As a user ,when i addd a new employee,i must see name field,email field and mobile field as text field's and the department must be a dropdown (ie select), in the drop down all the departments must be listed
+
+Employees
+    name,email,mobile,department(department's id)
+
+GET    /employees
+POST    /employees
+DELETE   /employees/id
