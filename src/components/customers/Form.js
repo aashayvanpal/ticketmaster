@@ -1,13 +1,13 @@
 import React from 'react'
 
 export default class CustomerForm extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
-            name: '',
-            email: '',
-            mobile: ''
+            name: props.customer ? props.customer.name : '',
+            email: props.customer ? props.customer.email : '',
+            mobile: props.customer ? props.customer.mobile : ''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -18,8 +18,12 @@ export default class CustomerForm extends React.Component {
         const formData = {
             name: this.state.name,
             email: this.state.email,
-            mobile: this.state.mobile
+            mobile: this.state.mobile,
+            // id:this.props.customer._id
         }
+        // Creating id only while editing and not while creating a new user
+        this.props.customer && (formData.id = this.props.customer._id)
+
         console.log('From Data : ', formData)
         this.props.handleCustomerSubmit(formData)
     }

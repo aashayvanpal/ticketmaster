@@ -49,7 +49,9 @@ export default class CustomersList extends React.Component {
                         {this.state.customers.map((customer, i) => {
                             return (
 
-                                <CustomerItem key={customer._id}
+                                <CustomerItem 
+                                    key={customer._id}
+                                    id={customer._id}
                                     index={i}
                                     name={customer.name}
                                     email={customer.email}

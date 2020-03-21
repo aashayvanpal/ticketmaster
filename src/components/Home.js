@@ -1,10 +1,12 @@
 import React from 'react'
-import { BrowserRouter, Link, Route } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import CustomersList from './customers/List.js'
 import CustomerNew from './customers/New.js'
 import DepartmentList from './departments/List.js'
 import EmployeeList from './employees/List.js'
 import EmployeeNew from './employees/New.js'
+import CustomerShow from './customers/Show.js'
+import CustomerEdit from './customers/Edit.js'
 
 
 
@@ -24,16 +26,24 @@ export default class Home extends React.Component {
                 <Link to="/Employees">Employees</Link>
                 <Route path="/" />
 
-                <Route path="/Customers" component={CustomersList} exact={true} />
+                <Switch>
+                    <Route path="/Customers" component={CustomersList} exact={true} />
 
-                <Route path="/Customers/new" component={CustomerNew} />
+                    <Route path="/Customers/new" component={CustomerNew} />
+                    
+                    <Route path="/Customers/edit/:id" component={CustomerEdit} />
 
-                <Route path="/Departments" component={DepartmentList} />
+                    <Route path="/Customers/:id" component={CustomerShow} />
 
-                <Route path="/Employees" component={EmployeeList} exact={true} />
 
-                <Route path="/Employees/new" component={EmployeeNew} />
+                    <Route path="/Departments" component={DepartmentList} />
 
+                    <Route path="/Employees" component={EmployeeList} exact={true} />
+
+                    <Route path="/Employees/new" component={EmployeeNew} />
+                    
+
+                </Switch>
 
 
             </BrowserRouter >

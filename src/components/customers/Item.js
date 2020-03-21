@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function CustomerItem(props) {
-    const { index, name, email, mobile } = props
+    const { id,index, name, email, mobile } = props
     return (
         <tr>
             <td>{index + 1}</td>
-            <td>{name}</td>
+            <td><Link to={`/Customers/${id}`}>{name}</Link></td>
             <td>{email}</td>
             <td>{mobile}</td>
             <td>show</td>
