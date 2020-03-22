@@ -1,0 +1,11 @@
+createStore()
+combineReducers { prop : propReducer }
+
+reducers - function(state,action) {swtich()} return 'new state'
+
+store
+dispatch   
+subscribe
+action creator / generator
+action - {type :'',payload:''}
+getState() 
