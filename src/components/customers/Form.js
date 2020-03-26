@@ -3,7 +3,6 @@ import React from 'react'
 export default class CustomerForm extends React.Component {
     constructor(props) {
         super(props)
-
         this.state = {
             name: props.customer ? props.customer.name : '',
             email: props.customer ? props.customer.email : '',
@@ -25,6 +24,7 @@ export default class CustomerForm extends React.Component {
         this.props.customer && (formData.id = this.props.customer._id)
 
         console.log('From Data : ', formData)
+        console.log('props :', this.props)
         this.props.handleCustomerSubmit(formData)
     }
 
@@ -54,7 +54,6 @@ export default class CustomerForm extends React.Component {
                     </label><br />
 
                     <input type='submit' />
-
                 </form>
             </div>
         )

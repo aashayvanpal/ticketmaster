@@ -1,4 +1,3 @@
-
-export const decrement=()=>{
-    return { type:'DECREMENT' }
+export const decrement = () => {
+    return { type: 'DECREMENT' }
 }

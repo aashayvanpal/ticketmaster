@@ -11,22 +11,22 @@ export default class CustomersList extends React.Component {
         }
     }
 
-    handleDelete=(id) => {
+    handleDelete = (id) => {
         // console.log('inside handleDelete ! ',id)
-        axios.delete(`/customers/${id}`,{
-            headers:{
-                'x-auth':localStorage.getItem('token')
+        axios.delete(`/customers/${id}`, {
+            headers: {
+                'x-auth': localStorage.getItem('token')
             }
         })
-        .then((response)=> {
-            // console.log(response.data)
-            this.setState((prevState) => ({
-                customers: prevState.customers.filter(customer => customer._id !== response.data._id)
-            }))
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+            .then((response) => {
+                // console.log(response.data)
+                this.setState((prevState) => ({
+                    customers: prevState.customers.filter(customer => customer._id !== response.data._id)
+                }))
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     componentDidMount() {
@@ -60,14 +60,13 @@ export default class CustomersList extends React.Component {
                             <th>Action</th>
                             <th>Remove</th>
                             <th>Update</th>
-
                         </tr>
                     </thead>
+
                     <tbody>
                         {this.state.customers.map((customer, i) => {
                             return (
-
-                                <CustomerItem 
+                                <CustomerItem
                                     key={customer._id}
                                     id={customer._id}
                                     index={i}
@@ -77,13 +76,10 @@ export default class CustomersList extends React.Component {
                                     handleDelete={this.handleDelete}
                                 />
                                 // <CustomerItem {...customer,index}/>
-
                             )
                         })}
                     </tbody>
                 </table>
-
-
                 <Link to='Customers/new'>Add Customer</Link>
             </div>
         )

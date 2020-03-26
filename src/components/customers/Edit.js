@@ -5,11 +5,11 @@ import axios from '../../config/axios.js'
 export default class customerEdit extends React.Component {
     constructor() {
         super()
-
         this.state = {
             customer: {}
         }
     }
+
 
     componentDidMount() {
         const id = this.props.match.params.id
@@ -28,7 +28,8 @@ export default class customerEdit extends React.Component {
             })
     }
 
-    handleCustomerSubmit = (customer) =>{
+
+    handleCustomerSubmit = (customer) => {
         console.log('Edit customer : ', customer)
         axios.put(`/customers/${customer.id}`, customer, {
             headers: {
@@ -45,7 +46,6 @@ export default class customerEdit extends React.Component {
                     this.props.history.push(`/Customers/${response.data._id}`)
                 }
             })
-
     }
 
 
@@ -53,8 +53,8 @@ export default class customerEdit extends React.Component {
         return (
             <div>
                 <h1> Edit Customer </h1>
-                { this.state.customer.name && <CustomerForm customer={this.state.customer}
-                                                            handleCustomerSubmit={this.handleCustomerSubmit}/>}
+                {this.state.customer.name && <CustomerForm customer={this.state.customer}
+                    handleCustomerSubmit={this.handleCustomerSubmit} />}
             </div>
 
         )

@@ -5,7 +5,7 @@ export default class DepartmentForm extends React.Component {
         super(props)
 
         this.state = {
-            name: props.department? props.department.name:''
+            name: props.department ? props.department.name : ''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -16,7 +16,7 @@ export default class DepartmentForm extends React.Component {
         })
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault()
         const formData = {
             name: this.state.name
@@ -24,11 +24,11 @@ export default class DepartmentForm extends React.Component {
 
         this.props.department && (formData.id = this.props.department._id)
 
-
-        console.log('formData :',formData)
-        this.props.handleFormSubmit(formData)
+        console.log('formData :', formData)
+        console.log('props :', this.props)
+        this.props.handleDepartmentSubmit(formData)
         this.setState({
-            name:''
+            name: ''
         })
     }
 
@@ -40,7 +40,7 @@ export default class DepartmentForm extends React.Component {
                         Name
                     </label>
                     <input type='text' value={this.state.name} id='name' onChange={this.handleChange} name='name' />
-                    <input type='submit' value='submit'/>
+                    <input type='submit' value='submit' />
                 </form>
             </div>
         )

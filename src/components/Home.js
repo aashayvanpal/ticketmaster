@@ -11,15 +11,9 @@ import HomePage from './Home/index.js'
 import DepartmentEdit from './departments/Edit.js'
 
 
-
-
 export default class Home extends React.Component {
-
-
     render() {
         return (
-
-
             <BrowserRouter>
                 <h1>Ticket Master </h1>
                 <Link to="/">Home</Link>
@@ -31,31 +25,22 @@ export default class Home extends React.Component {
                 <Switch>
                     <Route path="/" component={HomePage} exact={true} />
 
-
                     <Route path="/Customers" component={CustomersList} exact={true} />
-
                     <Route path="/Customers/new" component={CustomerNew} />
-
                     <Route path="/Customers/edit/:id" component={CustomerEdit} />
-
                     <Route path="/Customers/:id" component={CustomerShow} />
 
 
-                    <Route path="/Departments" component={DepartmentList} />
 
+                    <Route path="/Departments" component={DepartmentList} exact={true} />
                     <Route path="/Departments/edit/:id" component={DepartmentEdit} />
 
+
+
                     <Route path="/Employees" component={EmployeeList} exact={true} />
-
                     <Route path="/Employees/new" component={EmployeeNew} />
-
-
                 </Switch>
-
-
             </BrowserRouter >
         )
     }
-
-
 }

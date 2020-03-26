@@ -28,35 +28,33 @@ export default class departmentEdit extends React.Component {
             })
     }
 
-    // handleDepartmentSubmit = (department) =>{
-    //     console.log('Edit department changes: ', department)
-    //     axios.put(`/departments/${department.id}`, department, {
-    //         headers: {
-    //             "x-auth": localStorage.getItem('token')
-    //         }
-    //     })
-    //         .then(response => {
-    //             if (response.data.errors) {
-    //                 console.log('Validation Error : ', response.data.errors)
-    //                 window.alert(response.data.message)
-    //             }
-    //             else {
-    //                 console.log('success', response.data)
-    //                 this.props.history.push(`/departments`)
-    //             }
-    //         })
+    handleDepartmentSubmit = (department) => {
+        console.log('Edit department changes: ', department)
+        axios.put(`/departments/${department.id}`, department, {
+            headers: {
+                "x-auth": localStorage.getItem('token')
+            }
+        })
+            .then(response => {
+                if (response.data.errors) {
+                    console.log('Validation Error : ', response.data.errors)
+                    window.alert(response.data.message)
+                }
+                else {
+                    console.log('success', response.data)
+                    this.props.history.push(`/departments`)
+                }
+            })
 
-    // }
+    }
 
 
     render() {
         return (
             <div>
                 <h1> Edit Department </h1>
-                {/* { this.state.department.name && <DepartmentForm department={this.state.department}
-                                                            handleDepartmentSubmit={this.handleDepartmentSubmit}/>} */}
-
-                {this.state.department.name && <DepartmentForm department={this.state.department} />}
+                {this.state.department.name && <DepartmentForm department={this.state.department}
+                    handleDepartmentSubmit={this.handleDepartmentSubmit} />}
             </div>
 
         )

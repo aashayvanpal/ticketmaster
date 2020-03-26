@@ -6,14 +6,13 @@ import { Link } from 'react-router-dom'
 export default class CustomerShow extends React.Component {
     constructor() {
         super()
-
         this.state = {
             customer: {}
         }
     }
 
     componentDidMount() {
-        console.log('props :',this.props)
+        console.log('props :', this.props)
         const id = this.props.match.params.id
         axios.get(`/customers/${id}`, {
             headers: {

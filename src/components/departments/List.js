@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from '../../config/axios.js'
-
 import DepartmentForm from './Form.js'
 import DepartmentItem from './Item.js'
 
@@ -97,7 +96,7 @@ export default class DepartmentList extends React.Component {
         return (
             <div>
                 <h1>Listing Departments - {this.state.departments.length}</h1>
-                <DepartmentForm handleFormSubmit={this.handleFormSubmit} />
+                <DepartmentForm handleDepartmentSubmit={this.handleFormSubmit} />
                 <ul>
                     {this.state.departments.map(department => {
                         return <DepartmentItem key={department._id}

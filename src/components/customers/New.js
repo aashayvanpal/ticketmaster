@@ -6,8 +6,6 @@ import axios from '../../config/axios.js'
 export default class CustomerNew extends React.Component {
     constructor() {
         super()
-
-
         this.handleCustomerSubmit = this.handleCustomerSubmit.bind(this)
     }
 
@@ -28,7 +26,6 @@ export default class CustomerNew extends React.Component {
                     this.props.history.push('/Customers')
                 }
             })
-
     }
 
     render() {

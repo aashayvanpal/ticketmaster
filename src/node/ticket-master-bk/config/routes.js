@@ -14,6 +14,7 @@ router.delete('/customers/:id', customerController.destroy)
 
 // for departments 
 router.get('/departments', departmentController.list)
+router.get('/departments/:id', departmentController.show)
 router.post('/departments', departmentController.create)
 router.put('/departments/:id', departmentController.update)
 router.delete('/departments/:id', departmentController.destroy)

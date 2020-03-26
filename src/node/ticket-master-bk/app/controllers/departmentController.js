@@ -25,6 +25,26 @@ module.exports.create = (req, res) => {
         })
 }
 
+
+// show
+module.exports.show = (req, res) => {
+    id = req.params.id
+    Department.findById(id)
+        .then(department => {
+            if (department) {
+                // note will be either object or null value 
+                // checks to see if the note is present in the db
+                res.json(department) //sends the note 
+
+            } else { //send an empty object 
+                res.json({})
+            }
+        })
+        .catch(err => {
+            res.json(err)
+        })
+}
+
 // destroy
 module.exports.destroy = (req, res) => {
     const id = req.params.id
