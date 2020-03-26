@@ -1,0 +1,43 @@
+1. under the node folder create a new folder called as ticket-master-bk
+2. setup install and configure express
+3. create 3 schemas
+    1 - Customers 
+        -name
+        -email
+        -mobile
+    
+    2 - Departments 
+        -name
+    
+    3 - Employee
+        -name 
+        -email
+        -mobile
+
+4. Create routes 
+GET /customers   - list all customers 
+GET /departments - list all departments
+GET /employees   - list all employees 
+
+
+POST /customers - create a customer - name,email,mobile
+POST /departments - create a department - name
+POST /employees - create a employee - name,email,mobile
+
+5. employeeSchema - add a new field called as department - type is objectId,required : true
+
+    - ensure when a new emplyee is added , he/she belongs to a department
+
+6.  
+    GET /customers/:id   - show one customer 
+    GET /departments/:id - show one department
+    GET /employees/:id   - show one employee 
+
+
+    DELETE /customers/:id   - delete one customer 
+    DELETE /departments/:id - delete one department
+    DELETE /employees/:id   - delete one employee 
+
+    PUT /customers/:id   - Update one customer 
+    PUT /departments/:id - Update one department
+    PUT /employees/:id   - Update one employee 

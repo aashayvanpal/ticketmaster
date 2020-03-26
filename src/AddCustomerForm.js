@@ -1,22 +1,3 @@
-// import React from 'react'
-
-// export default class AddCustomerForm extends React.Component{
-//     constructor(){
-//         super()
-
-//     }
-//     render(){
-//         return(
-//             <div>
-//                 <h1>fill form here</h1>
-               
-//             </div>
-
-//         )
-
-//     }
-// }
-
 import React from 'react'
 
 export default class AddCustomerForm extends React.Component{

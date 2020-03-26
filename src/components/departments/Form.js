@@ -1,11 +1,11 @@
 import React from 'react'
 
 export default class DepartmentForm extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
-            name: ''
+            name: props.department? props.department.name:''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -21,6 +21,10 @@ export default class DepartmentForm extends React.Component {
         const formData = {
             name: this.state.name
         }
+
+        this.props.department && (formData.id = this.props.department._id)
+
+
         console.log('formData :',formData)
         this.props.handleFormSubmit(formData)
         this.setState({

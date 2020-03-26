@@ -8,6 +8,7 @@ import EmployeeNew from './employees/New.js'
 import CustomerShow from './customers/Show.js'
 import CustomerEdit from './customers/Edit.js'
 import HomePage from './Home/index.js'
+import DepartmentEdit from './departments/Edit.js'
 
 
 
@@ -41,6 +42,8 @@ export default class Home extends React.Component {
 
 
                     <Route path="/Departments" component={DepartmentList} />
+
+                    <Route path="/Departments/edit/:id" component={DepartmentEdit} />
 
                     <Route path="/Employees" component={EmployeeList} exact={true} />
 

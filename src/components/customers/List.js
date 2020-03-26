@@ -11,6 +11,24 @@ export default class CustomersList extends React.Component {
         }
     }
 
+    handleDelete=(id) => {
+        // console.log('inside handleDelete ! ',id)
+        axios.delete(`/customers/${id}`,{
+            headers:{
+                'x-auth':localStorage.getItem('token')
+            }
+        })
+        .then((response)=> {
+            // console.log(response.data)
+            this.setState((prevState) => ({
+                customers: prevState.customers.filter(customer => customer._id !== response.data._id)
+            }))
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
     componentDidMount() {
         axios.get('/customers', {
             headers: {
@@ -56,6 +74,7 @@ export default class CustomersList extends React.Component {
                                     name={customer.name}
                                     email={customer.email}
                                     mobile={customer.mobile}
+                                    handleDelete={this.handleDelete}
                                 />
                                 // <CustomerItem {...customer,index}/>
 
