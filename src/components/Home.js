@@ -9,6 +9,8 @@ import CustomerShow from './customers/Show.js'
 import CustomerEdit from './customers/Edit.js'
 import HomePage from './Home/index.js'
 import DepartmentEdit from './departments/Edit.js'
+import EmployeeEdit from './employees/Edit.js'
+import EmployeeShow from './employees/Show.js'
 
 
 export default class Home extends React.Component {
@@ -39,6 +41,9 @@ export default class Home extends React.Component {
 
                     <Route path="/Employees" component={EmployeeList} exact={true} />
                     <Route path="/Employees/new" component={EmployeeNew} />
+                    <Route path="/Employees/edit/:id" component={EmployeeEdit} />
+                    <Route path="/employees/:id" component={EmployeeShow} />
+
                 </Switch>
             </BrowserRouter >
         )

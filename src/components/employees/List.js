@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from '../../config/axios.js'
+import EmployeeItem from './Item.js'
 
 export default class EmployeesList extends React.Component {
     constructor() {
@@ -9,6 +10,26 @@ export default class EmployeesList extends React.Component {
             employees: []
         }
     }
+
+    handleRemove = (id) => {
+        console.log('inside employee handle remove ', id)
+
+        axios.delete(`/employees/${id}`, {
+            headers: {
+                'x-auth': localStorage.getItem('token')
+            }
+        })
+            .then((response) => {
+                // console.log(response.data)
+                this.setState((prevState) => ({
+                    employees: prevState.employees.filter(employee => employee._id !== response.data._id)
+                }))
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
 
     componentDidMount() {
         axios.get('/employees', {
@@ -39,21 +60,28 @@ export default class EmployeesList extends React.Component {
                             <th>Email</th>
                             <th>Mobile</th>
                             <th>Department</th>
+                            <th>Remove</th>
                             <th>Action</th>
+                            <th>Update</th>
+
 
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.employees.map(function (employee,i) {
+                        {this.state.employees.map((employee, i) => {
+                            console.log(employee)
                             return (
-                                <tr key={employee._id}>
-                                    <td> {i + 1} </td>
-                                    <td> {employee.name} </td>
-                                    <td> {employee.email} </td>
-                                    <td> {employee.mobile} </td>
-                                    <td> {employee.department.name} </td>
-                                    <td> show </td>
-                                </tr>
+                                <EmployeeItem key={employee._id}
+                                    index={i}
+                                    id={employee._id}
+                                    name={employee.name}
+                                    email={employee.email}
+                                    mobile={employee.mobile}
+                                    department={employee.department}
+                                    handleRemove={this.handleRemove}
+
+
+                                />
 
                             )
                         })}
@@ -65,5 +93,7 @@ export default class EmployeesList extends React.Component {
             </div>
         )
     }
+
+
 
 }

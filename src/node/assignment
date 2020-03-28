@@ -41,3 +41,33 @@ POST /employees - create a employee - name,email,mobile
     PUT /customers/:id   - Update one customer 
     PUT /departments/:id - Update one department
     PUT /employees/:id   - Update one employee 
+
+
+
+1. Create a model called as Ticket
+    - customerId - 
+    - departmentId 
+    - employeesIds {
+        type : [Schema.Types.ObjectId]
+    }
+    - title
+    - message 
+    - isResolved:{
+        type:Boolean
+        default:false
+    }
+    - priority
+    - createdAt 
+    - code
+    
+    - idDeleted:false
+
+2. 
+    Get /tickets
+    POST /tickets
+    Get /tickets/:id
+    PUT /tickets/:id - change isResolved to true
+    DELETE /tickets/soft_delete/:id 
+        updates the isDeleted to true
+    DELETE /tickets/:id 
+

@@ -2,14 +2,14 @@ import React from 'react'
 import axios from '../../config/axios'
 
 export default class EmployeeForm extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
-            name: '',
-            email: '',
-            mobile: '',
-            department: '',
+            name: props.employee? props.employee.name:'',
+            email: props.employee? props.employee.email:'',
+            mobile: props.employee? props.employee.mobile:'',
+            department: props.employee? props.employee.department:'',
             departments: []
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -24,6 +24,10 @@ export default class EmployeeForm extends React.Component {
             mobile: this.state.mobile,
             department: this.state.department
         }
+        // creating emplyee id while editing and not while creating new employee 
+        this.props.employee && (formData.id = this.props.employee._id)
+
+
         console.log('From Data : ', formData)
         this.props.handleEmployeeSubmit(formData)
     }
